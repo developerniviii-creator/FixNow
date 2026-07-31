@@ -1,0 +1,519 @@
+/* WorkerAssignments.css */
+
+.wa-page-wrapper {
+  background-color: #0b0f19;
+  min-height: 100vh;
+  color: #f8fafc;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+.wa-main-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+  padding-bottom: 6rem;
+}
+
+/* Header */
+.wa-page-header {
+  margin-bottom: 2.5rem;
+  animation: fadeInDown 0.6s ease-out forwards;
+}
+
+.wa-page-header h2 {
+  font-size: 2.4rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.wa-page-header p {
+  color: #94a3b8;
+  font-size: 1.1rem;
+}
+
+/* Layout */
+.wa-content-layout {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 2.5rem;
+}
+
+@media (max-width: 1024px) {
+  .wa-content-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Tabs */
+.wa-tabs {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 1px;
+}
+
+.wa-tab-btn {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  font-size: 1.05rem;
+  font-weight: 600;
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.wa-tab-btn:hover {
+  color: #e2e8f0;
+}
+
+.wa-tab-btn.active {
+  color: #3b82f6;
+}
+
+.wa-tab-btn::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: #3b82f6;
+  border-radius: 3px 3px 0 0;
+  transform: scaleX(0);
+  transition: transform 0.3s;
+}
+
+.wa-tab-btn.active::after {
+  transform: scaleX(1);
+}
+
+.wa-badge {
+  background: rgba(255, 255, 255, 0.1);
+  color: #cbd5e1;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  transition: all 0.3s;
+}
+
+.wa-tab-btn.active .wa-badge {
+  background: #3b82f6;
+  color: #fff;
+}
+
+/* Assignment List & Cards */
+.wa-assignment-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.wa-job-card {
+  background: rgba(30, 41, 59, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 1.8rem;
+  backdrop-filter: blur(16px);
+  transition: all 0.3s ease;
+  animation: slideUp 0.5s ease-out forwards;
+}
+
+.wa-job-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  border-color: rgba(96, 165, 250, 0.3);
+}
+
+.wa-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.wa-customer-info {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.wa-customer-info img {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 2px solid #475569;
+}
+
+.wa-customer-info h4 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #f8fafc;
+  margin-bottom: 0.2rem;
+}
+
+.wa-service-type {
+  font-size: 0.95rem;
+  color: #60a5fa;
+  font-weight: 500;
+}
+
+.wa-priority-badge {
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.wa-priority-high { background: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.3); }
+.wa-priority-medium { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); }
+.wa-priority-low { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
+
+.wa-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.wa-info-row {
+  display: flex;
+  gap: 2rem;
+}
+
+@media (max-width: 600px) {
+  .wa-info-row { flex-direction: column; gap: 1rem; }
+}
+
+.wa-info-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: #cbd5e1;
+  font-size: 0.95rem;
+}
+
+.wa-icon {
+  color: #64748b;
+  font-size: 1.1rem;
+}
+
+.wa-info-item strong {
+  color: #94a3b8;
+}
+
+.wa-issue-box {
+  background: rgba(15, 23, 42, 0.5);
+  padding: 1rem;
+  border-radius: 12px;
+  border-left: 3px solid #60a5fa;
+  font-size: 0.95rem;
+  color: #e2e8f0;
+  line-height: 1.5;
+}
+
+.wa-issue-box strong {
+  color: #94a3b8;
+  margin-right: 0.5rem;
+}
+
+.wa-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1.5rem;
+  border-top: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 768px) {
+  .wa-card-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+}
+
+.wa-status-text {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #94a3b8;
+  font-size: 0.95rem;
+}
+
+.wa-status-text span {
+  color: #f8fafc;
+  font-weight: 600;
+}
+
+.wa-action-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.wa-btn {
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s;
+  border: none;
+}
+
+.wa-btn-primary {
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
+}
+
+.wa-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(37, 99, 235, 0.5);
+}
+
+.wa-btn-secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.wa-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.wa-btn-success {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: #fff;
+}
+
+.wa-btn-success:hover {
+  box-shadow: 0 6px 15px rgba(16, 185, 129, 0.4);
+}
+
+.wa-btn-danger {
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.wa-btn-danger:hover {
+  background: rgba(239, 68, 68, 0.25);
+}
+
+/* Map Section */
+.wa-map-section {
+  position: sticky;
+  top: 100px;
+}
+
+.wa-map-card {
+  background: rgba(30, 41, 59, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  overflow: hidden;
+  backdrop-filter: blur(16px);
+}
+
+.wa-map-header {
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.wa-map-header h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.wa-map-status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: #34d399;
+  background: rgba(16, 185, 129, 0.1);
+  padding: 4px 10px;
+  border-radius: 12px;
+}
+
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  background: #34d399;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+.wa-map-container {
+  height: 350px;
+  width: 100%;
+  background: #0f172a;
+  position: relative;
+  overflow: hidden;
+}
+
+.wa-mock-map {
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+    radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: 0 0, 20px 20px;
+  position: relative;
+}
+
+.map-marker {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+}
+
+.worker-marker .marker-core {
+  background: #3b82f6;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 8px;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  position: relative;
+  z-index: 2;
+}
+
+.marker-ping {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(59, 130, 246, 0.5);
+  border-radius: 50%;
+  animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+  z-index: 1;
+}
+
+.job-marker {
+  color: #ef4444;
+  font-size: 1.8rem;
+  filter: drop-shadow(0 4px 5px rgba(0,0,0,0.5));
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.job-marker:hover {
+  transform: translate(-50%, -60%) scale(1.1);
+}
+
+.marker-tooltip {
+  position: absolute;
+  top: -30px;
+  background: #1e293b;
+  color: #fff;
+  font-size: 0.75rem;
+  padding: 4px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.2s;
+  pointer-events: none;
+}
+
+.job-marker:hover .marker-tooltip {
+  opacity: 1;
+}
+
+.map-route {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.route-anim {
+  stroke-dashoffset: 100;
+  animation: dash 5s linear infinite;
+}
+
+.wa-map-footer {
+  padding: 1.5rem;
+  background: rgba(15, 23, 42, 0.5);
+}
+
+.wa-map-footer p {
+  color: #94a3b8;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* Animations */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(52, 211, 153, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(52, 211, 153, 0); }
+}
+
+@keyframes ping {
+  75%, 100% { transform: scale(2.5); opacity: 0; }
+}
+
+@keyframes dash {
+  to { stroke-dashoffset: 0; }
+}
+
+.wa-empty-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: rgba(30, 41, 59, 0.3);
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+}
+
+.wa-empty-icon {
+  font-size: 3rem;
+  color: #475569;
+  margin-bottom: 1rem;
+}
+
+.wa-empty-state h3 {
+  font-size: 1.4rem;
+  color: #e2e8f0;
+  margin-bottom: 0.5rem;
+}
+
+.wa-empty-state p {
+  color: #94a3b8;
+}
